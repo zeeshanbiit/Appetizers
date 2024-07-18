@@ -26,7 +26,7 @@ struct AppitizersTabView: View {
                     Text("Account")
                 }
             
-        }
+        }.accentColor(Color("DarkGreen"))
     }
 }
 
