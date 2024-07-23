@@ -18,7 +18,7 @@ struct OrderView: View {
                 isPresented = true
             }label: {
                 Text("Order Detail")
-            }.fullScreenCover(isPresented: $isPresented, content: {
+            }.sheet(isPresented: $isPresented, content: {
                 AccountView()
             })
                 .navigationTitle("Order View")
