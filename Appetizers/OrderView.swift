@@ -14,13 +14,6 @@ struct OrderView: View {
         
         NavigationStack{
             Text("Order View")
-            Button{
-                isPresented = true
-            }label: {
-                Text("Order Detail")
-            }.sheet(isPresented: $isPresented, content: {
-                AccountView()
-            })
                 .navigationTitle("Order View")
         }
        
