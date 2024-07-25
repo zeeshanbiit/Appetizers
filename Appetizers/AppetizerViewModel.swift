@@ -12,3 +12,18 @@ class AppetizerViewModel : ObservableObject{
     @Published var isPresented = false
     
 }
+
+extension AppetizerViewModel{
+    
+    func CheckExtension(){
+        
+        print("Test Extension")
+    }
+}
+
+extension Color{
+    
+    func DarkBlack(){
+        print("dark black")
+    }
+}

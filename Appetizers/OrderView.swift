@@ -17,6 +17,7 @@ struct OrderView: View {
             Text("Order View")
             Button{
                 appetizerViewModel.isPresented = true
+                appetizerViewModel.CheckExtension()
             }label: {
                 Text("Click me")
             }.sheet(isPresented: $appetizerViewModel.isPresented, content: {
