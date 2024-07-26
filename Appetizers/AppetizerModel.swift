@@ -6,9 +6,36 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct AppetizerModel : Codable{
+class SwiftUILearning{
     
-    var Id = UUID()
+    let a = 9
+    
+    
+    func testingPrit(b: String){
+        
+        print(b)
+        
+        switch b{
+        case "c":
+            print("c")
+            break
+        default:
+            print("defalut")
+            break
+        }
+        
+        
+   
+        
+    }
+    
+}
+
+
+struct TestingStruct{
+    
+    let name = "My Name"
     
 }
