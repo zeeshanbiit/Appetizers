@@ -10,6 +10,8 @@ import SwiftUI
 class AppetizerViewModel : ObservableObject{
     
     @Published var isPresented = false
+    @Published var name:String? = nil
+  //  @Published var name:String? = "Zeeshan"
     
 }
 
