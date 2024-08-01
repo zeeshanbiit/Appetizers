@@ -10,7 +10,7 @@ import Foundation
 class NetworkManager {
     
     static let stared = NetworkManager()
-    static let BaseURL = ""
+    static let BaseURL = "www.themealdb.com/api/json/v1/1/search.php?f=a"
     private let AppetizerURL =  BaseURL + ""
     
     init(){
