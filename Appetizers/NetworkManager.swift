@@ -21,7 +21,7 @@ class NetworkManager {
     func getAppetizerList(completed: @escaping(Result<[Appetizers], APError>) -> Void){
         
         guard let url = URL(string: AppetizerURL)else{
-            completed(.failure(.InvalidURL))
+            completed(.failure(.invalidURL))
             return
         }
         
@@ -30,27 +30,29 @@ class NetworkManager {
             
             
             guard let error = error else{
-                completed(.failure(.InvalidError))
+                completed(.failure(.unableToComplete))
                 return
             }
             
             guard let response = response as? HTTPURLResponse , response.statusCode == 200 else{
-                completed(.failure(.InvalidError))
+                completed(.failure(.invalidResponse))
                 return
             }
             guard let data = data else{
-                completed(.failure(.InvalidData))
+                completed(.failure(.invalidData))
                 return
             }
             
-            
-            
-            
+            do {
+                let decoder = JSONDecoder()
+                let decoderResponse = try decoder.decode(AppetizerMeals.self, from: data)
+                completed(.success(decoderResponse.meals))
+            }catch{
+                completed(.failure(.invalidData))
+            }
+           
         }
-        
-        
-        
-        
+        task.resume()
     }
     
 }
