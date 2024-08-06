@@ -8,15 +8,33 @@
 import SwiftUI
 
 struct AppetizerView: View {
+    
+    @StateObject private var appetizerViewModel:AppetizerViewModel = AppetizerViewModel()
+    
     var body: some View {
-        NavigationStack{
-            Text("Appetizer View")
-                .navigationTitle("Appetizer View")
+        ZStack{
+            NavigationStack{
+                List{
+                    ForEach(appetizerViewModel.appetizers){appetizer in
+                        AppetizerCell(appetizerImageName: appetizer.strMealThumb, appetizerName: appetizer.strMeal)
+                    }
+                }
+                .navigationTitle(appetizerViewModel.title)
+            }.onAppear(){
+                appetizerViewModel.getAppetizers()
+            }
+            if appetizerViewModel.isLoading{
+                LoadingView()
+            }
         }
-        
+        .alert(item: $appetizerViewModel.alertItem){alertItem in
+            Alert(title: alertItem.title,message: alertItem.message,dismissButton: alertItem.dismissButton)
+        }
     }
 }
 
 #Preview {
     AppetizerView()
 }
+
+

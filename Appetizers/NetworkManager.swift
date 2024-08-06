@@ -10,7 +10,7 @@ import Foundation
 class NetworkManager {
     
     static let stared = NetworkManager()
-    static let BaseURL = "www.themealdb.com/api/json/v1/1/search.php?f=a"
+    static let BaseURL = "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
     private let AppetizerURL =  BaseURL + ""
     
     init(){
@@ -29,7 +29,7 @@ class NetworkManager {
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) {(data , response , error) in
             
             
-            guard let error = error else{
+            if let _ = error{
                 completed(.failure(.unableToComplete))
                 return
             }

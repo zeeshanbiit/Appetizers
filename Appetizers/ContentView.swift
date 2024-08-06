@@ -24,7 +24,7 @@ struct AppitizersTabView: View {
                     ItemView(imageName: "person.crop.circle.fill", itemName: "Account")
                 }
             
-        }.accentColor(Color("DarkGreen"))
+        }.accentColor(.brandPrimary)
     }
 }
 
