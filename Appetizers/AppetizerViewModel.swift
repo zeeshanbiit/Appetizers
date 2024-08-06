@@ -9,23 +9,22 @@ import SwiftUI
 
 class AppetizerViewModel : ObservableObject{
     
-    @Published var appetizers:[Appetizers] = []
-    @Published var alertItem:AlertItem?
+    @Published var appetizers : [Appetizers] = []
+    @Published var alertItem : AlertItem?
+    
     @Published var isLoading = false
-    @Published var title = "Appetizer"
     
-    
+  
     func getAppetizers(){
         
         isLoading = true
-        
-        NetworkManager.shared.getAppetizerList{ result in
-          
+        NetworkManager.shared.getAppetizerList {result in
+           
             DispatchQueue.main.async {
                 self.isLoading = false
                 switch result{
-                case .success(let appetizers):
-                    self.appetizers = appetizers
+                case .success(let appetizer):
+                    self.appetizers = appetizer
                 case .failure(let error):
                     switch error{
                     case .invalidURL:
@@ -37,11 +36,12 @@ class AppetizerViewModel : ObservableObject{
                     case .unableToComplete:
                         self.alertItem = AlertContext.unableToComplete
                     }
+                    
                 }
             }
+           
+            
         }
-        
     }
-    
 }
 
