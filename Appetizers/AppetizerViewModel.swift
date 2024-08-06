@@ -19,7 +19,7 @@ class AppetizerViewModel : ObservableObject{
         
         isLoading = true
         
-        NetworkManager.stared.getAppetizerList{ result in
+        NetworkManager.shared.getAppetizerList{ result in
           
             DispatchQueue.main.async {
                 self.isLoading = false
