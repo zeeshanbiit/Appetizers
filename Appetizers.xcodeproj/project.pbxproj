@@ -58,6 +58,128 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A65BF292C62EDEE00758A80 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1AE175522C41F0A400A4266C /* ContentView.swift */,
+				1A65BF2A2C62EDF500758A80 /* AppetizerListView */,
+				1A65BF2C2C62EE0B00758A80 /* OrderView */,
+				1A65BF2B2C62EDFE00758A80 /* AccountView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		1A65BF2A2C62EDF500758A80 /* AppetizerListView */ = {
+			isa = PBXGroup;
+			children = (
+				1A33A4312C51B2550026FCD4 /* AppetizerViewModel.swift */,
+				1AFBB2562C49BCE700DCC5B2 /* AppetizerView.swift */,
+			);
+			path = AppetizerListView;
+			sourceTree = "<group>";
+		};
+		1A65BF2B2C62EDFE00758A80 /* AccountView */ = {
+			isa = PBXGroup;
+			children = (
+				1AFBB2542C49BCC900DCC5B2 /* AccountView.swift */,
+			);
+			path = AccountView;
+			sourceTree = "<group>";
+		};
+		1A65BF2C2C62EE0B00758A80 /* OrderView */ = {
+			isa = PBXGroup;
+			children = (
+				1AFBB2522C49BCAD00DCC5B2 /* OrderView.swift */,
+			);
+			path = OrderView;
+			sourceTree = "<group>";
+		};
+		1A65BF2D2C62EE6F00758A80 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1A65BF302C62EEB800758A80 /* AlertsEnum */,
+				1A65BF2F2C62EE9600758A80 /* Extensions */,
+				1A65BF2E2C62EE8E00758A80 /* Managers */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1A65BF2E2C62EE8E00758A80 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1AFD3B392C5AF7C600B0CCA4 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1A65BF2F2C62EE9600758A80 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A2396BE2C617AC700E6EBFE /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A65BF302C62EEB800758A80 /* AlertsEnum */ = {
+			isa = PBXGroup;
+			children = (
+				1AFD3B3B2C5AFDB300B0CCA4 /* APError.swift */,
+				1A2396BA2C61707500E6EBFE /* Alert.swift */,
+			);
+			path = AlertsEnum;
+			sourceTree = "<group>";
+		};
+		1A65BF312C62EF2400758A80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A65BF322C62EF2D00758A80 /* AppetizerModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A65BF322C62EF2D00758A80 /* AppetizerModel */ = {
+			isa = PBXGroup;
+			children = (
+				1A33A42F2C51B1E30026FCD4 /* AppetizerModel.swift */,
+			);
+			path = AppetizerModel;
+			sourceTree = "<group>";
+		};
+		1A65BF332C62EF6600758A80 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A65BF362C62EFA500758A80 /* Images */,
+				1A65BF352C62EF8900758A80 /* Cells */,
+				1A65BF342C62EF8000758A80 /* UIKitComponents */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1A65BF342C62EF8000758A80 /* UIKitComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1A2396BC2C6179B300E6EBFE /* LoadingView.swift */,
+			);
+			path = UIKitComponents;
+			sourceTree = "<group>";
+		};
+		1A65BF352C62EF8900758A80 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1AC889262C4F0C4C00836044 /* ItemView.swift */,
+				1A2396C02C617C4E00E6EBFE /* AppetizerCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1A65BF362C62EFA500758A80 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1A1344B72C62C15900E5F95D /* RemoteImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		1AE175442C41F0A400A4266C = {
 			isa = PBXGroup;
 			children = (
@@ -77,21 +199,11 @@
 		1AE1754F2C41F0A400A4266C /* Appetizers */ = {
 			isa = PBXGroup;
 			children = (
+				1A65BF332C62EF6600758A80 /* CustomViews */,
+				1A65BF312C62EF2400758A80 /* Model */,
+				1A65BF2D2C62EE6F00758A80 /* Utilities */,
+				1A65BF292C62EDEE00758A80 /* Screens */,
 				1AE175502C41F0A400A4266C /* AppetizersApp.swift */,
-				1AFBB2562C49BCE700DCC5B2 /* AppetizerView.swift */,
-				1A2396C02C617C4E00E6EBFE /* AppetizerCell.swift */,
-				1A33A4312C51B2550026FCD4 /* AppetizerViewModel.swift */,
-				1A33A42F2C51B1E30026FCD4 /* AppetizerModel.swift */,
-				1AFD3B392C5AF7C600B0CCA4 /* NetworkManager.swift */,
-				1A1344B72C62C15900E5F95D /* RemoteImage.swift */,
-				1A2396BA2C61707500E6EBFE /* Alert.swift */,
-				1A2396BC2C6179B300E6EBFE /* LoadingView.swift */,
-				1A2396BE2C617AC700E6EBFE /* Color+Ext.swift */,
-				1AFD3B3B2C5AFDB300B0CCA4 /* APError.swift */,
-				1AE175522C41F0A400A4266C /* ContentView.swift */,
-				1AC889262C4F0C4C00836044 /* ItemView.swift */,
-				1AFBB2522C49BCAD00DCC5B2 /* OrderView.swift */,
-				1AFBB2542C49BCC900DCC5B2 /* AccountView.swift */,
 				1AE175542C41F0A500A4266C /* Assets.xcassets */,
 				1AE175562C41F0A500A4266C /* Preview Content */,
 			);
