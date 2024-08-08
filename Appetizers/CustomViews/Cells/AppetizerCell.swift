@@ -15,7 +15,7 @@ struct AppetizerCell:View{
     var body: some View{
        
         HStack{
-            AppetizerRemteImage(urlString: appetizerImageName)
+            AppetizerRemoteImageView(urlString: appetizerImageName)
                 .frame(width:60,height: 60)
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(8.0)

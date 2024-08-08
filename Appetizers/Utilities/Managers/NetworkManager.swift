@@ -12,8 +12,8 @@ class NetworkManager {
     static let shared = NetworkManager()
     static let BaseURL = "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
     private let AppetizerURL =  BaseURL + ""
+  
     private let cache = NSCache<NSString, UIImage>()
-
     
     init(){
         
@@ -58,12 +58,12 @@ class NetworkManager {
     }
     
     
-    
-    func downloadImage(fromURLString urlString:String ,completed: @escaping(UIImage?)-> Void){
+    func downloadImageFromURL(urlString:String ,completed: @escaping(UIImage?) -> Void){
         
         let cacheKey = NSString(string: urlString)
         
         if let image = self.cache.object(forKey: cacheKey){
+            
             completed(image)
             return
         }
@@ -76,17 +76,19 @@ class NetworkManager {
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) {(data , response , error) in
             
-            guard let data = data , let image = UIImage(data: data)else{
+            guard let data = data , let image = UIImage(data: data)  else{
                 completed(nil)
                 return
             }
+            
+            
             self.cache.setObject(image, forKey: cacheKey)
             completed(image)
             
         }
+
         task.resume()
         
-         
-           
     }
+    
 }
