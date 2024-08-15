@@ -13,7 +13,8 @@ class AppetizerViewModel : ObservableObject{
     @Published var alertItem : AlertItem?
     
     @Published var isLoading = false
-    
+    @Published var isShowingAppetizer = false
+    @Published var selectedAppetizer:Appetizers?
   
     func getAppetizers(){
         

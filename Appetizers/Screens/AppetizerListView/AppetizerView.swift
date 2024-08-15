@@ -19,11 +19,20 @@ struct AppetizerView: View {
                 List{
                     ForEach(appetizerViewModel.appetizers){appetizers in
                         AppetizerCell(appetizerImageName: appetizers.strMealThumb, appetizerName: appetizers.strMeal)
+                            .onTapGesture {
+                                appetizerViewModel.selectedAppetizer = appetizers
+                                appetizerViewModel.isShowingAppetizer = true
+                            }
                     }
                 }
                     .navigationTitle("Appetizer")
+                    .disabled(appetizerViewModel.isShowingAppetizer )
             }.onAppear(){
                 appetizerViewModel.getAppetizers()
+            }
+            .blur(radius: appetizerViewModel.isShowingAppetizer ? 20 : 0)
+            if appetizerViewModel.isShowingAppetizer{
+                AppetizerDetailView(isShowingAppetizer: $appetizerViewModel.isShowingAppetizer, appetizer: appetizerViewModel.selectedAppetizer)
             }
             if appetizerViewModel.isLoading{
                 LoadingView()

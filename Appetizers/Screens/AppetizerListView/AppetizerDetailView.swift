@@ -8,52 +8,92 @@
 import SwiftUI
 
 struct AppetizerDetailView: View {
+    
+    @Binding var isShowingAppetizer:Bool
+    let  appetizer:Appetizers?
+    
     var body: some View {
-        ZStack{
             VStack{
-                Image("appetizerdetaildummy")
-                    .resizable()
-                    .frame(width: 390,height: 250)
-                VStack(alignment:.center, spacing:30){
-                    Text("Appetizer Title")
+                AppetizerRemoteImageView(urlString: appetizer!.strMealThumb)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300,height: 240)
+                
+                VStack(alignment:.center){
+                    Text(appetizer!.strMeal)
                         .font(.title)
                         .fontWeight(.medium)
-                    Text("This is the appetizer Description that we will use for the multiple purpose")
+                    Text(appetizer!.strMeal)
                         .font(.body)
                         .multilineTextAlignment(.center)
-                    HStack(alignment:.center, spacing: 50){
+                        .padding()
+                }
+                
+                HStack(spacing:40){
+                    VStack(alignment:.center, spacing: 5){
                         Text("Calories")
+                            .bold()
+                            .font(.caption)
+                        Text(appetizer!.MealID)
+                            .foregroundStyle(.secondary)
+                            .fontWeight(.semibold)
+                            .italic()
+                        
+                    }
+                    VStack(alignment:.center, spacing: 5){
                         Text("Carbs")
+                            .bold()
+                            .font(.caption)
+                        
+                        Text(appetizer!.id)
+                            .foregroundStyle(.secondary)
+                            .fontWeight(.semibold)
+                            .italic()
+                    }
+                    VStack(alignment:.center, spacing: 5){
                         Text("Protien")
+                            .bold()
+                            .font(.caption)
+                        Text(appetizer!.MealID)
+                            .foregroundStyle(.secondary)
+                            .fontWeight(.semibold)
+                            .italic()
                     }
-                    HStack(alignment:.center, spacing: 50){
-                        Text("100")
-                        Text("80")
-                        Text("50")
-                    }
-                }.padding(.all)
-                Spacer()
+                }
+               
+                
                 Button{
                     
                 }label: {
                     Text("$ 11.99  -  Add to Order")
-                        .frame(width: 300, height: 70)
+                        .frame(width: 260, height: 50)
                         .foregroundStyle(.white)
                         .font(.title2)
                         .fontWeight(.bold)
                         .background(.green)
-                        .cornerRadius(8.0)
-                }
-            }
-        }.overlay(alignment: .topTrailing, content: {
+                        .cornerRadius(12.0)
+                }.padding(.bottom,30)
+            }.frame(width: 300,height: 525)
+            .background(Color(.systemBackground))
+            .cornerRadius(12.0)
+            .shadow(radius: 40)
+        .overlay(alignment: .topTrailing, content: {
             Button{
-                
+                isShowingAppetizer = false
             }label: {
-                Image(systemName: "x.circle.fill")
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 20,height: 20)
-                    .foregroundColor(.gray)
-                    .padding(.all)
+                ZStack{
+                    Circle()
+                        .frame(width: 30,height: 30)
+                        .foregroundColor(.white)
+                        .opacity(0.6)
+                    
+                    Image(systemName: "xmark")
+                        .imageScale(.small)
+                        .frame(width: 44,height: 44)
+                        .foregroundColor(.black)
+                    
+                }
+                
+               
             }
         })
        
@@ -61,5 +101,5 @@ struct AppetizerDetailView: View {
 }
 
 #Preview {
-    AppetizerDetailView()
+    AppetizerDetailView(isShowingAppetizer: .constant(false), appetizer: MockData.simpleAppetizer)
 }
