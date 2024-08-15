@@ -22,10 +22,9 @@ struct AppetizerDetailView: View {
                     Text(appetizer!.strMeal)
                         .font(.title)
                         .fontWeight(.medium)
-                    Text(appetizer!.strMeal)
-                        .font(.body)
+                    Text(appetizer!.strInstructions)
+                        .font(.caption)
                         .multilineTextAlignment(.center)
-                        .padding()
                 }
                 
                 HStack(spacing:40){
