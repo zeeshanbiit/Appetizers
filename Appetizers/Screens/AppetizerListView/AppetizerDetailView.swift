@@ -49,8 +49,10 @@ struct AppetizerDetailView: View {
             Button{
                 
             }label: {
-                Image(systemName: "x.circle")
-                    .foregroundColor(.black)
+                Image(systemName: "x.circle.fill")
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20,height: 20)
+                    .foregroundColor(.gray)
                     .padding(.all)
             }
         })
